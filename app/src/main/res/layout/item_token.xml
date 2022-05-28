@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="info"
+            type="com.example.domain.model.CoinInfo" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{info.base}"
+                android:textSize="16sp"
+                tool:text="BTC" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="@{`/`+info.currencyConversion}"
+                tool:text="/USD"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvBuyPrice"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{info.buyPrice.toString()}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textAlignment="textEnd"
+            tool:text="20000" />
+
+        <TextView
+            android:id="@+id/tvSellPrice"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{info.sellPrice.toString()}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textAlignment="textEnd"
+            tool:text="20000" />
+    </LinearLayout>
+</layout>
