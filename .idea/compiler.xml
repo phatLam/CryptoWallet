@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="CryptoWallet.app" target="11" />
       <module name="CryptoWallet.data" target="11" />
+      <module name="CryptoWallet.searchfeature" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

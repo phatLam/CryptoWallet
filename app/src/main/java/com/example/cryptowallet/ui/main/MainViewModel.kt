@@ -45,7 +45,7 @@ class MainViewModel(private val useCase: CryptoTokenGetAllUserCase) : ViewModel(
         }
     }
     @OptIn(ExperimentalTime::class)
-    fun tickerFlow(period: Duration, initialDelay: Duration = Duration.ZERO) = flow {
+    fun tickerFlow(period: Duration) = flow {
         while (true) {
             emit(Unit)
             delay(period)
