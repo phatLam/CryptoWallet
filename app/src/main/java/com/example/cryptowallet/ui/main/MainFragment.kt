@@ -47,9 +47,6 @@ class MainFragment : Fragment() {
         mainViewModel.tokenListingLiveData.observe(viewLifecycleOwner) {
             adapter.setList(it)
         }
-//        mainViewModel.failureLiveData.observe(viewLifecycleOwner) {
-//            showNetworkError(it)
-//        }
         binding.imgSearch.setOnClickListener {
             openSearchScreen()
         }
@@ -110,7 +107,7 @@ class MainFragment : Fragment() {
     }
     private fun handleNetworkListener(status: Int) {
         if (status == NETWORK_CONNECTED_CODE) {//connected
-
+            mainViewModel.fetchTokenListingByPeriod()
         } else {
 
         }

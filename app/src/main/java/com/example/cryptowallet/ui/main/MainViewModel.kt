@@ -1,10 +1,13 @@
 package com.example.cryptowallet.ui.main
 
+import android.util.Log
 import androidx.lifecycle.*
+import com.example.domain.core.error.ApiFailure
 import com.example.domain.core.error.Failure
 import com.example.domain.model.CoinInfo
 import com.example.domain.usecase.CryptoTokenGetAllUserCase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -37,6 +40,7 @@ class MainViewModel(private val useCase: CryptoTokenGetAllUserCase) : ViewModel(
         viewModelScope.launch {
             useCase.invoke("USD").fold(fnL = {
                 _failure.value = it
+                handleError(it)
             }, {
                 _tokenListing.value = it
             })
@@ -50,8 +54,9 @@ class MainViewModel(private val useCase: CryptoTokenGetAllUserCase) : ViewModel(
             }
         }
     }
-    private fun fetchTokenListingByPeriod() {
-        viewModelScope.launch {
+    private var fetchTokenListingJob: Job?= null
+    fun fetchTokenListingByPeriod() {
+        fetchTokenListingJob = viewModelScope.launch {
             tickerFlow(5.seconds)
                 .collect {
                     getCryptoTokenListing()
@@ -69,5 +74,12 @@ class MainViewModel(private val useCase: CryptoTokenGetAllUserCase) : ViewModel(
     fun removeSearchedData(){
         queryFlow.value = ""
         _searchedTokenListingState.value = emptyList()
+    }
+
+    private fun handleError(failure: Failure) {
+        if (failure is ApiFailure.Connection){
+            Log.i("Phat", "Network")
+            fetchTokenListingJob?.cancel()
+        }
     }
 }
