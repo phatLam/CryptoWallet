@@ -4,7 +4,7 @@ import com.example.data.remote.reponse.CoinInfoResponse
 import com.example.domain.model.CoinInfo
 
 class RepoMapper  {
-    fun map(items: List<CoinInfoResponse>, currency: String): List<CoinInfo> {
+    fun map(items: List<CoinInfoResponse>): List<CoinInfo> {
         return items.map {
             CoinInfo(
                 base = it.base,
@@ -13,7 +13,6 @@ class RepoMapper  {
                 buyPrice = it.buy_price,
                 sellPrice = it.sell_price,
                 icon = it.icon,
-                currencyConversion = currency
             )
         }
 

@@ -1,6 +1,7 @@
 package com.example.data.remote.di
 
 import com.example.data.remote.retrofit.ApiService
+import com.example.data.remote.retrofit.CryptoApi
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -10,11 +11,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val apiModule = module {
-    fun provideUseApi(retrofit: Retrofit): ApiService {
-        return retrofit.create(ApiService::class.java)
+    fun provideCryptoApi(): CryptoApi {
+        return CryptoApi("https://www.coinhako.com/")
     }
 
-    single { provideUseApi(get()) }
+    single { provideCryptoApi() }
 }
 val retrofitModule = module {
     fun provideGson(): Gson {

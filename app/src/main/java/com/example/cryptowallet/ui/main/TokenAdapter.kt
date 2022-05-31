@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.cryptowallet.R
 import com.example.cryptowallet.databinding.ItemTokenBinding
 import com.example.domain.model.CoinInfo
@@ -52,6 +53,7 @@ class TokenAdapter(): RecyclerView.Adapter<TokenViewHolder>() {
 class TokenViewHolder(private val binding: ItemTokenBinding): RecyclerView.ViewHolder(binding.root) {
     fun bind(item: CoinInfo) {
         binding.info = item
+        setImageUrl(item.icon)
         setPriceTextColor(item.status)
         binding.executePendingBindings()
     }
@@ -62,6 +64,9 @@ class TokenViewHolder(private val binding: ItemTokenBinding): RecyclerView.ViewH
             else -> R.color.green
         }
         binding.tvBuyPrice.setTextColor(ContextCompat.getColor(binding.root.context, color))
-        binding.tvSellPrice.setTextColor(ContextCompat.getColor(binding.root.context, color))
+    }
+
+    private fun setImageUrl(url: String) {
+        Glide.with(binding.root).load(url).into(binding.imgToken)
     }
 }

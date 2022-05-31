@@ -10,7 +10,6 @@ data class CoinInfo (
 	val sellPrice : BigDecimal,
 	val icon : String,
 	val name : String,
-	val currencyConversion: String,
 	var status : PriceStatus = PriceStatus.EQUAL
 )
 

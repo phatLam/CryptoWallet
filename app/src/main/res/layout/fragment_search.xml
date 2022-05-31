@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="adapter"
+            type="com.example.cryptowallet.ui.main.TokenAdapter" />
     </data>
 
     <LinearLayout
@@ -42,9 +44,11 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvCoin"
+            android:id="@+id/rvToken"
+            android:adapter="@{adapter}"
+            tools:listitem="@layout/item_token"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </LinearLayout>
 </layout>
