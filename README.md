@@ -4,7 +4,7 @@ This is a android test application.
 
 functionality:
 
-[x] show crypto token listing.
+- [x] show crypto token listing.
 
 [x] searching 
 
