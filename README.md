@@ -4,8 +4,6 @@ This is a android test application.
 
 functionality:
 
-:white_large_square
-
 show crypto token listing.
 
 -searching 
