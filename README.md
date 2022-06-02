@@ -20,3 +20,7 @@ this demo apply some technology:
 -MVVM + clean architecture
 
 -Flow, coroutine, Koin
+
+- [ ] Mercury
+- [x] Venus
+
