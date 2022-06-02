@@ -1,8 +1,8 @@
 # Instructions
 
-This is a android test application. 
+This is an android test application. 
 
-functionality:
+Functionality:
 
 - [x] show crypto token listing.
 
@@ -12,13 +12,13 @@ functionality:
 
 - [x] write some unit test
 
-- [x] - Store key with keystore. Toast it when you open the app.
+- [x] store key with keystore. Toast it when you open the app.
 
 - [ ] apply instant dynamic feature module
 
 ##  Technique
 
-this demo apply some technology:
+This demo apply some technology:
 
 -MVVM + clean architecture
 
