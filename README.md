@@ -12,6 +12,8 @@ functionality:
 
 - [x] write some unit test
 
+- [x] - Store key with keystore. Toast it when you open the app.
+
 - [ ] apply instant dynamic feature module
 
 ##  Technique
