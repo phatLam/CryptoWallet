@@ -4,14 +4,15 @@ This is a android test application.
 
 functionality:
 
-show crypto token listing.
+[x] show crypto token listing.
 
--searching 
+[x] searching 
 
--show up/down status of price.
+[x] show up/down status of price.
 
--write some unit test
+[x] write some unit test
 
+[ ] apply instant dynamic feature module
 
 ##  Technique
 
@@ -21,6 +22,4 @@ this demo apply some technology:
 
 -Flow, coroutine, Koin
 
-- [ ] Mercury
-- [x] Venus
 
